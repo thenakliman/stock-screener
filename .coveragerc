@@ -1,0 +1,20 @@
+[run]
+branch = True
+source = screener
+
+[report]
+ignore_errors = True
+show_missing=True
+skip_empty=True
+omit =
+    screener/tests/**
+    screener/cli/**
+    screener/factories/**
+    screener/filters/factory.py
+
+exclude_lines =
+    pragma: no cover
+    pass
+
+[html]
+directory = htmlcov

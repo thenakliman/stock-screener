@@ -1,0 +1,41 @@
+- name
+- sector
+- score
+- current_price
+- less_than_maximum_price
+- more_than_minimum_price
+- pe
+- price_to_book
+- market_capital
+- industry_pe
+- minimum_price
+- maximum_price
+- satisfied_strategies
+- score_card:
+    - net_sale
+    - incomes
+    - not_met_criterias
+    - met_criteria
+    - isinid
+    - financial_year
+    - asset_turnover
+    - cash_flows
+    - current_ratio
+    - debt
+    - financial_year
+    - graham_number
+    - gross_margin
+    - isinid
+    - long_term_debts
+    - name
+    - new_issued_shares
+    - operating_cash_flow
+    - price_to_book
+    - return_on_assets
+    - tags
+    - total_issued_shares
+    - name
+    - score
+    - sector
+    - more_than_minimum_price
+    - less_than_maximum_price

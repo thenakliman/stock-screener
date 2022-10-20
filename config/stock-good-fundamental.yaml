@@ -1,0 +1,295 @@
+strategies:
+  good_fundamental_and_good_growth_by_sales_small:
+    - filters:
+        - name: latest_financial_year
+        - name: increasing_net_sale
+          parameters:
+            for_years: 2
+            expected_increment: 20
+        - name: minimum_price
+          parameters:
+            years: 1.5
+            not_more_than_min_by_percentage: 120
+        - name: high_piotroski_more_than
+          parameters:
+            required_minimum_score: 8
+        - name: net_sales
+          parameters:
+            minimum_sales: 200
+        - name: pe_filter
+          parameters:
+            percentage_of_industry: 80
+        - name: maximum_price
+          parameters:
+            years: 1.5
+            less_than_maximum_value_in_percentage: 15
+        - name: max_pe
+          parameters:
+            maximum_pe: 60
+        - name: price_to_book
+          parameters:
+            price_to_book_ratio: 2.5
+  good_fundamentals:
+    - filters:
+        - name: market_capital
+          parameters:
+            minimum_market_capital: 1000
+        - name: latest_financial_year
+        - name: minimum_price
+          parameters:
+            years: 1.5
+            not_more_than_min_by_percentage: 100
+        - name: net_sales
+          parameters:
+            minimum_sales: 200
+        - name: high_piotroski_more_than
+          parameters:
+            required_minimum_score: 7
+        - name: pe_filter
+          parameters:
+            percentage_of_industry: 80
+        - name: increased_net_sale
+          parameters:
+            in_years: 3
+            expected_increment: 24
+        - name: maximum_price
+          parameters:
+            years: 1.5
+            less_than_maximum_value_in_percentage: 15
+        - name: max_pe
+          parameters:
+            maximum_pe: 60
+        - name: price_to_book
+          parameters:
+            price_to_book_ratio: 1
+  good_fundamentals_no_debt:
+    - filters:
+        - name: latest_financial_year
+        - name: market_capital
+          parameters:
+            minimum_market_capital: 100
+        - name: asset_turnover_is_greater_than_sector
+        - name: gross_margin_is_greater_than_sector
+        - name: return_on_asset_is_greater_than_sector
+        - name: high_piotroski
+        - name: debt
+          parameters:
+            debt_amount: 1
+        - name: minimum_price
+          parameters:
+            years: 1.5
+            not_more_than_min_by_percentage: 100
+        - name: net_sales
+          parameters:
+            minimum_sales: 200
+        - name: pe_filter
+          parameters:
+            percentage_of_industry: 60
+        - name: increased_net_sale
+          parameters:
+            in_years: 3
+            expected_increment: 24
+        - name: maximum_price
+          parameters:
+            years: 1.5
+            less_than_maximum_value_in_percentage: 15
+        - name: max_pe
+          parameters:
+            maximum_pe: 60
+        - name: price_to_book
+          parameters:
+            price_to_book_ratio: 1.5
+  good_growth_and_fundamentals:
+    - filters:
+        - name: market_capital
+          parameters:
+            minimum_market_capital: 100
+        - name: latest_financial_year
+        - name: asset_turnover_is_greater_than_sector
+        - name: gross_margin_is_greater_than_sector
+        - name: return_on_asset_is_greater_than_sector
+        - name: increased_net_sale
+          parameters:
+            in_years: 3
+            expected_increment: 45
+        - name: high_piotroski
+        - name: minimum_price
+          parameters:
+            years: 1.5
+            not_more_than_min_by_percentage: 120
+        - name: net_sales
+          parameters:
+            minimum_sales: 200
+        - name: pe_filter
+          parameters:
+            percentage_of_industry: 80
+        - name: maximum_price
+          parameters:
+            years: 1.5
+            less_than_maximum_value_in_percentage: 15
+        - name: max_pe
+          parameters:
+            maximum_pe: 60
+        - name: price_to_book
+          parameters:
+            price_to_book_ratio: 3
+  sensex_next_50:
+    - filters:
+        - name: tag
+          parameters:
+            tags:
+              - "S&P BSE SENSEX Next 50"
+        - name: latest_financial_year
+        - name: minimum_price
+          parameters:
+            years: 1.5
+            not_more_than_min_by_percentage: 100
+        - name: maximum_price
+          parameters:
+            years: 1.5
+            less_than_maximum_value_in_percentage: 15
+        - name: pe_filter
+          parameters:
+            percentage_of_industry: 0.7
+        - name: increased_net_sale
+          parameters:
+            in_years: 3
+            expected_increment: 30
+        - name: max_pe
+          parameters:
+            maximum_pe: 40
+        - name: price_to_book
+          parameters:
+            price_to_book_ratio: 4
+  avg_fundamentals_low_pe:
+    - filters:
+        - name: market_capital
+          parameters:
+            minimum_market_capital: 100
+        - name: latest_financial_year
+        - name: pe_filter
+          parameters:
+            percentage_of_industry: 30
+        - name: net_sales
+          parameters:
+            minimum_sales: 200
+        - name: minimum_price
+          parameters:
+            years: 1.5
+            not_more_than_min_by_percentage: 100
+        - name: high_piotroski_more_than
+          parameters:
+            required_minimum_score: 6
+        - name: increased_net_sale
+          parameters:
+            in_years: 3
+            expected_increment: 30
+        - name: maximum_price
+          parameters:
+            years: 1.5
+            less_than_maximum_value_in_percentage: 15
+        - name: max_pe
+          parameters:
+            maximum_pe: 40
+        - name: price_to_book
+          parameters:
+            price_to_book_ratio: 1
+  good_fundamentals_low_pb:
+    - filters:
+        - name: market_capital
+          parameters:
+            minimum_market_capital: 1000
+        - name: latest_financial_year
+        - name: minimum_price
+          parameters:
+            years: 1.5
+            not_more_than_min_by_percentage: 100
+        - name: net_sales
+          parameters:
+            minimum_sales: 200
+        - name: high_piotroski_more_than
+          parameters:
+            required_minimum_score: 7
+        - name: pe_filter
+          parameters:
+            percentage_of_industry: 80
+        - name: increased_net_sale
+          parameters:
+            in_years: 3
+            expected_increment: 24
+        - name: maximum_price
+          parameters:
+            years: 1.5
+            less_than_maximum_value_in_percentage: 15
+        - name: max_pe
+          parameters:
+            maximum_pe: 30
+        - name: price_to_book
+          parameters:
+            price_to_book_ratio: 1
+  graham_number:
+    - filters:
+        - name: market_capital
+          parameters:
+            minimum_market_capital: 1000
+        - name: latest_financial_year
+        - name: minimum_price
+          parameters:
+            years: 1.5
+            not_more_than_min_by_percentage: 100
+        - name: net_sales
+          parameters:
+            minimum_sales: 200
+        - name: high_piotroski_more_than
+          parameters:
+            required_minimum_score: 7
+        - name: pe_filter
+          parameters:
+            percentage_of_industry: 80
+        - name: increased_net_sale
+          parameters:
+            in_years: 3
+            expected_increment: 24
+        - name: maximum_price
+          parameters:
+            years: 1.5
+            less_than_maximum_value_in_percentage: 15
+        - name: max_pe
+          parameters:
+            maximum_pe: 30
+        - name: graham_number
+output:
+  sort:
+    ascending: false
+    by: less_than_maximum_price
+  #  group_by: sector
+  #  keep_top_results: 3
+  operations:
+    - name: basic_details_report
+    - name: market_capital_report
+    - name: cash_flow_greater_than_net_income_report
+    - name: asset_turnover_report
+    - name: current_ratio_report
+    - name: gross_margin_report
+    - name: return_on_asset_report
+    - name: long_term_debt_report
+    - name: operating_cash_flow_report
+    - name: net_income_report
+    - name: issued_shares_report
+    - name: price_to_book_report
+    - name: debt_report
+    - name: high_piotroski_report
+    - name: pe_filter_report
+    - name: sector_report
+    - name: increasing_net_sale_report
+    - name: market_leader_report
+    - name: price_to_book_report
+    - name: debt_to_equity_report
+    - name: maximum_price_report
+      parameters:
+        in_years: 2.4
+    - name: minimum_price_report
+      parameters:
+        in_years: 2.4
+    - name: graham_number_report
+    - name: tag_report
