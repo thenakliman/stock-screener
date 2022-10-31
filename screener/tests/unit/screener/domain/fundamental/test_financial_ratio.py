@@ -12,23 +12,19 @@ class FinancialRatiosTest(unittest.TestCase):
                       get_current_ratio=lambda: 1.4,
                       get_asset_turnover=lambda: 3.4,
                       get_gross_margin=lambda: 1000,
-                      get_return_on_asset=lambda: 1.3,
-                      to_dict=lambda: {"a": 3}),
+                      get_return_on_asset=lambda: 1.3),
             mock.Mock(get_financial_year=lambda: 2021,
                       get_current_ratio=lambda: 1.4,
                       get_asset_turnover=lambda: 2.3,
-                      get_gross_margin=lambda: 1200,
-                      to_dict=lambda: {"a": 2}),
+                      get_gross_margin=lambda: 1200),
             mock.Mock(get_financial_year=lambda: 2020,
                       get_current_ratio=lambda: 1.5,
                       get_asset_turnover=lambda: 2.3,
-                      get_gross_margin=lambda: 1000,
-                      to_dict=lambda: {"a": 1}),
+                      get_gross_margin=lambda: 1000),
             mock.Mock(get_financial_year=lambda: 2019,
                       get_current_ratio=lambda: 1.3,
                       get_asset_turnover=lambda: 4.3,
-                      get_gross_margin=lambda: 1000,
-                      to_dict=lambda: {"a": 10})
+                      get_gross_margin=lambda: 1000)
         ])
 
     def test_increasing_current_ratio__true__when_ratio_is_increasing(self):

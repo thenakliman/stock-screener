@@ -29,14 +29,3 @@ class FinancialRatiosTest(unittest.TestCase):
 
     def test_get_financial_year(self):
         self.assertEqual(2022, self.financial_ratios.get_financial_year())
-
-    def test_to_dict(self):
-        self.assertDictEqual({
-            "current_ratio": 1.1,
-            "gross_margin": 1200,
-            "asset_turnover_ratio": 1.2,
-            "return_on_asset": 3,
-            "financial_year": 2022,
-            "date_created": "12-01-2022",
-            "last_date_updated": "12-02-2022"
-        }, self.financial_ratios.to_dict())

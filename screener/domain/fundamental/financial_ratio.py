@@ -32,14 +32,3 @@ class FinancialRatio:
 
     def get_financial_year(self) -> int:
         return self._financial_year
-
-    def to_dict(self) -> dict:
-        return {
-            constants.CURRENT_RATIO: self._current_ratio,
-            constants.GROSS_MARGIN: self._gross_margin,
-            constants.ASSET_TURNOVER_RATIO: self._asset_turnover_ratio,
-            constants.RETURN_ON_ASSET: self._return_on_asset,
-            constants.FINANCIAL_YEAR: self._financial_year,
-            constants.DATE_CREATED: self._date_created,
-            constants.LAST_DATE_UPDATED: self._last_date_updated
-        }

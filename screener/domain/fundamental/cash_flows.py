@@ -24,8 +24,5 @@ class CashFlows:
     def get_cash_flow(self, year: int) -> float:
         return self._find_cash_flow_for_year(year).get_cash_flow_from_operating_activities()
 
-    def to_dict(self) -> List[dict]:
-        return [cash_flow.to_dict() for cash_flow in self._cash_flows]
-
     def get_financial_year_of_results(self) -> Tuple[int]:
         return tuple(cash_flow.get_financial_year() for cash_flow in self._cash_flows)

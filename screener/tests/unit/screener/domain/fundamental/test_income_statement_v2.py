@@ -29,14 +29,3 @@ class IncomeStatementTest(unittest.TestCase):
 
     def test_get_financial_year(self):
         self.assertEqual(self.income_statement.get_financial_year(), 2019)
-
-    def test_to_dict(self):
-        self.assertDictEqual(self.income_statement.to_dict(), {
-            "income": 1203.23,
-            "net_sale": 1202.5,
-            "total_expense": 600.4,
-            "issued_shares": 123.2,
-            "date_created": "20-01-2019",
-            "last_date_updated": "20-02-2020",
-            "financial_year": 2019
-        })

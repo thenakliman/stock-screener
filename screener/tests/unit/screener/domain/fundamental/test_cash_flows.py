@@ -10,16 +10,13 @@ class TestCashFlow(unittest.TestCase):
         self.cash_flows = CashFlows([
             mock.Mock(get_financial_year=lambda: 2021,
                       positive_cash_flow=lambda: True,
-                      get_cash_flow_from_operating_activities=lambda: 1000,
-                      to_dict=lambda: {"a": 4}),
+                      get_cash_flow_from_operating_activities=lambda: 1000),
             mock.Mock(get_financial_year=lambda: 2020,
                       positive_cash_flow=lambda: False,
-                      get_cash_flow_from_operating_activities=lambda: 2000,
-                      to_dict=lambda: {"a": 5}),
+                      get_cash_flow_from_operating_activities=lambda: 2000),
             mock.Mock(get_financial_year=lambda: 2019,
                       positive_cash_flow=lambda: False,
-                      get_cash_flow_from_operating_activities=lambda: 3000,
-                      to_dict=lambda: {"a": 6})
+                      get_cash_flow_from_operating_activities=lambda: 3000)
         ])
 
     def test_get_latest_financial_year_of_result(self):
@@ -42,6 +39,3 @@ class TestCashFlow(unittest.TestCase):
 
     def test_get_cash_flow__for_first_year(self):
         self.assertEqual(1000, self.cash_flows.get_cash_flow(2021))
-
-    def test_to_dict(self):
-        self.assertListEqual([{"a": 4}, {"a": 5}, {"a": 6}], self.cash_flows.to_dict())

@@ -28,14 +28,3 @@ class IncomeStatement:
 
     def get_financial_year(self) -> int:
         return self._financial_year
-
-    def to_dict(self) -> Dict:
-        return {
-            constants.INCOME: self._incomes,
-            constants.NET_SALE: self._net_sale,
-            constants.TOTAL_EXPENSE: self._expense,
-            constants.ISSUED_SHARES: self._issued_shares,
-            constants.DATE_CREATED: self._date_created,
-            constants.LAST_DATE_UPDATED: self._last_date_updated,
-            constants.FINANCIAL_YEAR: self._financial_year
-        }

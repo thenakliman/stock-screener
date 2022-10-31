@@ -20,11 +20,3 @@ class CashFlow:
 
     def positive_cash_flow(self):
         return self._cash_flow_from_operating_activities > 0
-
-    def to_dict(self):
-        return {
-            constants.CASH_FLOW_FROM_OPERATING_ACTIVITIES: self._cash_flow_from_operating_activities,
-            constants.DATE_CREATED: self._date_created,
-            constants.LAST_DATE_UPDATED: self._last_date_updated,
-            constants.FINANCIAL_YEAR: self._financial_year
-        }

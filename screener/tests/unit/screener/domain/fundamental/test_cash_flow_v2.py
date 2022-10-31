@@ -28,11 +28,3 @@ class TestCashFlow(unittest.TestCase):
             date_created="20-01-2021",
             last_date_updated="21-01-2021"
         ).positive_cash_flow())
-
-    def test_to_dict(self):
-        self.assertDictEqual(self.cash_flow.to_dict(), {
-            "cash_flow_from_operating_activities": 2932,
-            "date_created": "20-01-2021",
-            "last_date_updated": "21-01-2021",
-            "financial_year": 2021
-        })

@@ -38,17 +38,3 @@ class TestBalanceSheet(TestCase):
 
     def test_get_debt_to_equity_ratio(self):
         self.assertEqual(0.7300850734725445, self.balance_sheet.get_debt_to_equity_ratio())
-
-    def test_to_dict(self):
-        self.assertDictEqual({
-            "financial_year": 2021,
-            "total_current_liability": 1293.3,
-            "total_current_asset": 342.3,
-            "total_non_current_asset": 53.5,
-            "total_shareholders_funds": 1293,
-            "total_asset": 2938,
-            "long_term_borrowing": 934,
-            "short_term_borrowings": 10,
-            "date_created": "12-12-2020",
-            "last_date_updated": "12-12-2021"
-        }, self.balance_sheet.to_dict())

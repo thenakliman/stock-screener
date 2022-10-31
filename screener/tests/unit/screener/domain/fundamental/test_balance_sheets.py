@@ -13,7 +13,6 @@ class TestBalanceSheets(TestCase):
             get_long_term_debts=lambda: 550,
             get_debt_to_equity_ratio=lambda: 0.3,
             get_total_asset=lambda: 2900,
-            to_dict=lambda: {"a": 12}
         ), mock.Mock(
             get_financial_year=lambda: 2020,
             get_current_ratio=lambda: 1.1,
@@ -21,7 +20,6 @@ class TestBalanceSheets(TestCase):
             get_long_term_debts=lambda: 590,
             get_debt_to_equity_ratio=lambda: 0.4,
             get_total_asset=lambda: 2930,
-            to_dict=lambda: {"a": 123}
         )])
 
     def test_get_latest_financial_year_of_result(self):
@@ -109,6 +107,3 @@ class TestBalanceSheets(TestCase):
 
     def test_get_asset__raise_exception__when_data_not_found(self):
         self.assertRaises(BalanceSheetNotFound, lambda: self.balance_sheet.get_asset(2023))
-
-    def test_to_dict(self):
-        self.assertListEqual(self.balance_sheet.to_dict(), [{"a": 12}, {"a": 123}])

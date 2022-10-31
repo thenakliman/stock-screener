@@ -24,20 +24,6 @@ class BalanceSheet:
         self._date_created = date_created
         self._last_date_updated = last_date_updated
 
-    def to_dict(self) -> dict:
-        return {
-            constants.FINANCIAL_YEAR: self._financial_year,
-            constants.TOTAL_CURRENT_LIABILITY: self._total_current_liability,
-            constants.TOTAL_CURRENT_ASSET: self._total_current_asset,
-            constants.TOTAL_NON_CURRENT_ASSET: self._total_non_current_asset,
-            constants.TOTAL_SHAREHOLDERS_FUNDS: self._total_shareholders_funds,
-            constants.TOTAL_ASSET: self._total_asset,
-            constants.LONG_TERM_BORROWING: self._long_term_borrowings,
-            constants.SHORT_TERM_BORROWINGS: self._short_term_borrowings,
-            constants.LAST_DATE_UPDATED: self._last_date_updated,
-            constants.DATE_CREATED: self._date_created
-        }
-
     def get_total_assets(self) -> float:
         return self._total_asset
 
