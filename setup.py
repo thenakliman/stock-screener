@@ -26,7 +26,7 @@ setuptools.setup(
     ],
     entry_points={
         'console_scripts': [
-            'stock-screener = screener.cli.cli:main'
+            'screener = screener.cli.cli:main'
         ]
     }
 )

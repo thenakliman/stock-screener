@@ -8,10 +8,6 @@ def get_parser():
     parser = argparse.ArgumentParser(description="Stock screener command line interface",
                                      prog="stock-screener")
 
-    parser.add_argument("-p", "--process",
-                        type=int,
-                        default=8)
-
     subparsers = parser.add_subparsers(help="Stock screener command help")
     analyse_sub_command_parser = subparsers.add_parser("screen", help="screen based on available type")
     analyse_sub_command_parser.add_argument("-t", "--type",
