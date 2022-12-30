@@ -53,7 +53,7 @@ class TestSector(TestCase):
         self.sector = Sector(**self._sector())
 
     def test_get_sector_name(self):
-        self.assertEqual("auto", self.sector.get_sector_name())
+        self.assertEqual("auto", self.sector.get_name())
 
     def test_get_market_leader(self):
         self.assertEqual(self.stock2, self.sector.get_market_leader())

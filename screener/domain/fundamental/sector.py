@@ -33,7 +33,7 @@ class Sector:
         self._debt_to_equity = debt_to_equity
         self._metadata = {}
 
-    def get_sector_name(self) -> str:
+    def get_name(self) -> str:
         return self._name
 
     def get_market_capital(self) -> int:

@@ -1,6 +1,3 @@
-from screener.common import constants
-
-
 class BalanceSheet:
     def __init__(self,
                  financial_year: int,

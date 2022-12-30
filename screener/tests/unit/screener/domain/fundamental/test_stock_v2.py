@@ -1,9 +1,9 @@
 from unittest import TestCase, mock
 
-from screener.domain.technical.day_value import DayValue
-from screener.domain.technical.historical_prices import HistoricalValues
 from screener.domain.fundamental.sector import Sector
 from screener.domain.fundamental.stock import Stock
+from screener.domain.technical.day_value import DayValue
+from screener.domain.technical.historical_prices import HistoricalValues
 from screener.exceptions.not_found import DataNotFound, CurrentPriceNotFound
 
 
@@ -612,6 +612,9 @@ class TestStock(TestCase):
 
     def test_get_company_name(self):
         self.assertEqual("Hindustan Unilever", self.stock.get_company_name())
+
+    def test_get_group(self):
+        self.assertEqual("A", self.stock.get_group())
 
     def test_increasing_current_ratio__true__when_current_ratio_is_increasing(self):
         increasing_current_ratio = mock.Mock(return_value=True)
@@ -1728,6 +1731,15 @@ class TestStock(TestCase):
         self.stock.add_tag("fmcg")
         self.assertListEqual(['S&P BSE SENSEX', 'S&P BSE 100', 'S&P BSE 200', 'S&P BSE 500', 'fmcg'],
                              self.stock.get_tags())
+
+    def test_get_industry(self):
+        self.assertEqual('MAN', self.stock.get_industry())
+
+    def test_get_sub_industry(self):
+        self.assertEqual('Personal Care', self.stock.get_sub_industry())
+
+    def test_get_sector(self):
+        self.assertEqual(self.sector, self.stock.get_sector())
 
     def test_has_latest_data__true__when_date_is_latest(self):
         stock_details = self._get_stock_details()

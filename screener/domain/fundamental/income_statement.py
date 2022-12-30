@@ -1,8 +1,3 @@
-from typing import Dict
-
-from screener.common import constants
-
-
 class IncomeStatement:
     def __init__(self, financial_year: int, incomes: float, net_sale: float, expenses: float,
                  issued_shares: float, date_created: str, last_date_updated: str):

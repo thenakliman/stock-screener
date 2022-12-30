@@ -1,6 +1,3 @@
-from screener.common import constants
-
-
 class FinancialRatio:
     def __init__(self,
                  current_ratio: float,

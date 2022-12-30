@@ -4,11 +4,11 @@ from typing import List
 from screener.common import constants, date
 from screener.common.constants import ISINID
 from screener.common.u_dict import merge_dict
-from screener.domain.technical.day_value import DayValue
 from screener.domain.fundamental.balance_sheets import BalanceSheets
 from screener.domain.fundamental.cash_flows import CashFlows
 from screener.domain.fundamental.financial_ratios import FinancialRatioV2
 from screener.domain.fundamental.income_statements import IncomeStatements
+from screener.domain.technical.day_value import DayValue
 from screener.exceptions.not_found import DataNotFound, CurrentPriceNotFound
 from screener.filters.stock.constants import (
     REPORT_DATA_KEY,
@@ -146,6 +146,10 @@ class Stock:
     @log_exception
     def get_company_name(self):
         return self._name
+
+    @log_exception
+    def get_group(self):
+        return self._group
 
     @log_exception
     def increasing_current_ratio(self, year: int) -> bool:
@@ -428,3 +432,12 @@ class Stock:
     def add_tag(self, tag) -> None:
         if tag not in self._tags:
             self._tags.append(tag)
+
+    def get_industry(self) -> str:
+        return self._industry
+
+    def get_sub_industry(self) -> str:
+        return self._sub_industry
+
+    def get_sector(self):
+        return self._sector
