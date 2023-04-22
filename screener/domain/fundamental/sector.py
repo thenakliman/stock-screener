@@ -15,6 +15,7 @@ class Sector:
                  gross_margin: float,
                  net_sales: List[Dict],
                  return_on_asset: float,
+                 return_on_equity: float,
                  debt_to_equity: float,
                  historical_values: List[Dict],
                  stocks: List[Stock]):
@@ -30,6 +31,7 @@ class Sector:
         self._net_sales = net_sales
         self._historical_values = historical_values
         self._return_on_asset = return_on_asset
+        self._return_on_equity = return_on_equity
         self._debt_to_equity = debt_to_equity
         self._metadata = {}
 
@@ -62,6 +64,9 @@ class Sector:
 
     def get_return_on_asset(self) -> float:
         return self._return_on_asset
+
+    def get_return_on_equity(self) -> float:
+        return self._return_on_equity
 
     def market_share_of_sale(self) -> List[Dict]:
         return [{

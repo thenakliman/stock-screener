@@ -34,6 +34,9 @@ class BalanceSheet:
     def get_debt_to_equity_ratio(self) -> float:
         return self.get_total_debt() / self._total_shareholders_funds
 
+    def get_shareholders_fund(self) -> float:
+        return self._total_shareholders_funds
+
     def get_total_debt(self) -> float:
         return self._short_term_borrowings + self._long_term_borrowings
 

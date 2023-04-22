@@ -12,6 +12,7 @@ class TestBalanceSheets(TestCase):
             get_total_debt=lambda: 340,
             get_long_term_debts=lambda: 550,
             get_debt_to_equity_ratio=lambda: 0.3,
+            get_shareholders_fund=lambda: 13,
             get_total_asset=lambda: 2900,
         ), mock.Mock(
             get_financial_year=lambda: 2020,
@@ -19,6 +20,7 @@ class TestBalanceSheets(TestCase):
             get_total_debt=lambda: 335,
             get_long_term_debts=lambda: 590,
             get_debt_to_equity_ratio=lambda: 0.4,
+            get_shareholders_fund=lambda: 17,
             get_total_asset=lambda: 2930,
         )])
 
@@ -107,3 +109,9 @@ class TestBalanceSheets(TestCase):
 
     def test_get_asset__raise_exception__when_data_not_found(self):
         self.assertRaises(BalanceSheetNotFound, lambda: self.balance_sheet.get_asset(2023))
+
+    def test_get_shareholders_fund__raise_exception__when_balance_sheet_not_found(self):
+        self.assertRaises(BalanceSheetNotFound, lambda: self.balance_sheet.get_shareholders_fund(2023))
+
+    def test_get_shareholders_fund(self):
+        self.assertEqual(13, self.balance_sheet.get_shareholders_fund(2021))

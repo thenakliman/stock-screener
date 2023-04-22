@@ -25,7 +25,7 @@ class TestStock(TestCase):
             self.income_statement,
             self.cash_flow,
             self.financial_ratios)
-        self.sector = Sector("consumer", self.stock, 12, 75, 3.4, 2.3, 1.2, 3.4, 1200, 3.4, 0.1, [], [self.stock])
+        self.sector = Sector("consumer", self.stock, 12, 75, 3.4, 2.3, 1.2, 3.4, [{}], 3.4, 2.1, 0.1, [], [self.stock])
         self.stock.update_sector(self.sector)
 
     @staticmethod
@@ -1777,3 +1777,51 @@ class TestStock(TestCase):
 
     def test_get_financial_year_of_results(self):
         self.assertListEqual([2020, 2019, 2018, 2017], self.stock.get_financial_year_of_results())
+
+    def test_get_return_on_equity(self):
+        get_net_income = mock.Mock(return_value=200)
+        income_statement = mock.Mock(get_net_income=get_net_income)
+        get_share_holders_fund = mock.Mock(return_value=99.99)
+        self.balance_sheet = mock.Mock(get_shareholders_fund=get_share_holders_fund)
+        stock = Stock(
+            self._get_stock_details(),
+            self.balance_sheet,
+            income_statement,
+            self.cash_flow,
+            self.financial_ratios)
+
+        self.assertEqual(stock.get_return_on_equity(2021), 2)
+        get_net_income.assert_called_with(2021)
+        get_share_holders_fund.assert_called_with(2021)
+
+    def test_get_return_on_equity__false__when_greater_than_sector(self):
+        get_net_income = mock.Mock(return_value=200)
+        income_statement = mock.Mock(get_net_income=get_net_income)
+        get_share_holders_fund = mock.Mock(return_value=99.99)
+        self.balance_sheet = mock.Mock(get_shareholders_fund=get_share_holders_fund)
+        stock = Stock(
+            self._get_stock_details(),
+            self.balance_sheet,
+            income_statement,
+            self.cash_flow,
+            self.financial_ratios)
+        stock.update_sector(self.sector)
+        self.assertFalse(stock.return_on_equity_is_greater_than_sector(2021), 2)
+        get_net_income.assert_called_with(2021)
+        get_share_holders_fund.assert_called_with(2021)
+
+    def test_get_return_on_equity__true__when_greater_than_sector(self):
+        get_net_income = mock.Mock(return_value=200)
+        income_statement = mock.Mock(get_net_income=get_net_income)
+        get_share_holders_fund = mock.Mock(return_value=9.99)
+        self.balance_sheet = mock.Mock(get_shareholders_fund=get_share_holders_fund)
+        stock = Stock(
+            self._get_stock_details(),
+            self.balance_sheet,
+            income_statement,
+            self.cash_flow,
+            self.financial_ratios)
+        stock.update_sector(self.sector)
+        self.assertTrue(stock.return_on_equity_is_greater_than_sector(2021))
+        get_net_income.assert_called_with(2021)
+        get_share_holders_fund.assert_called_with(2021)

@@ -441,3 +441,9 @@ class Stock:
 
     def get_sector(self):
         return self._sector
+
+    def get_return_on_equity(self, year: int) -> float:
+        return self._income_statements.get_net_income(year) / (0.01 + self._balance_sheets.get_shareholders_fund(year))
+
+    def return_on_equity_is_greater_than_sector(self, year: int) -> float:
+        return self.get_return_on_equity(year) > self._sector.get_return_on_equity()

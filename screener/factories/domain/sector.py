@@ -114,7 +114,8 @@ def create_sector(name, stocks):
         debt_to_equity=_average(lambda stock: stock.get_debt_to_equity_ratio(latest_year), stocks),
         market_capital=sum((stock.get_market_capital() for stock in stocks)),
         historical_values=get_historical_prices(stocks),
-        stocks=stocks
+        stocks=stocks,
+        return_on_equity=0,  # todo: to be implemented
     )
     list(map(lambda stock: stock.update_sector(sector), stocks))
     return sector

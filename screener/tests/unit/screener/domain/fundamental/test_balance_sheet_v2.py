@@ -38,3 +38,6 @@ class TestBalanceSheet(TestCase):
 
     def test_get_debt_to_equity_ratio(self):
         self.assertEqual(0.7300850734725445, self.balance_sheet.get_debt_to_equity_ratio())
+
+    def test_get_shareholders_fund(self):
+        self.assertEqual(1293, self.balance_sheet.get_shareholders_fund())

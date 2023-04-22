@@ -43,5 +43,8 @@ class BalanceSheets:
     def get_asset(self, year: int) -> float:
         return self._find_balance_sheet_for_year(year).get_total_asset()
 
+    def get_shareholders_fund(self, year: int) -> float:
+        return self._find_balance_sheet_for_year(year).get_shareholders_fund()
+
     def get_financial_year_of_results(self) -> Tuple[int]:
         return tuple(balance_sheet.get_financial_year() for balance_sheet in self._balance_sheets)

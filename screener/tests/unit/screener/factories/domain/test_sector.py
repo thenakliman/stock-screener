@@ -104,6 +104,7 @@ class TestSector(TestCase):
             gross_margin=2,
             net_sales=[{'year': 19, 'sale': 72}, {'year': 20, 'sale': 600}, {'year': 21, 'sale': 330}],
             return_on_asset=4,
+            return_on_equity=0,
             debt_to_equity=2,
             market_capital=100,
             historical_values=[],

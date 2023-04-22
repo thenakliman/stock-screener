@@ -27,6 +27,7 @@ class TestSector(TestCase):
             "gross_margin": 2.3,
             "net_sales": [{"year": 2019, "sale": 100}, {"year": 2020, "sale": 200}, {"year": 2021, "sale": 300}],
             "return_on_asset": 2.4,
+            "return_on_equity": 2.3,
             "debt_to_equity": 0.3,
             "historical_values": [
                 {"value": 1}, {"value": 2}, {"value": 3}, {"value": 1}]
@@ -81,6 +82,9 @@ class TestSector(TestCase):
 
     def test_get_return_on_asset(self):
         self.assertEqual(self.sector.get_return_on_asset(), 2.4)
+
+    def test_get_return_on_equity(self):
+        self.assertEqual(self.sector.get_return_on_equity(), 2.3)
 
     def test_get_debt_to_equity(self):
         self.assertEqual(self.sector.get_debt_to_equity(), 0.3)
